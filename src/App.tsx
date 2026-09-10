@@ -20,7 +20,11 @@ const externalProps = { target: "_blank", rel: "noreferrer" };
 function Logo() {
   return (
     <a className="logo" href="#home" aria-label="Developer Utility home">
-      <img className="logo-mark" src="/assets/Logo.png" alt="" />
+      <img
+        className="logo-mark"
+        src={`${import.meta.env.BASE_URL}assets/Logo.png`}
+        alt=""
+      />
       <span>Developer Utility</span>
     </a>
   );
@@ -84,7 +88,7 @@ function AppPreview() {
   return (
     <div className="app-preview">
       <img
-        src="/assets/tool%20preview.png"
+        src={`${import.meta.env.BASE_URL}assets/tool%20preview.png`}
         alt="Developer Utility desktop application preview"
       />
     </div>
