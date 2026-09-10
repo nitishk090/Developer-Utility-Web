@@ -2,22 +2,58 @@
   "name": "developer-utility-website",
   "private": true,
   "version": "1.0.0",
+  "description": "Developer Utility desktop toolkit and web landing page",
+  "author": "Nitish Kumar",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
-    "preview": "vite preview"
-  },
-  "dependencies": {
-    "@vitejs/plugin-react": "latest",
-    "lucide-react": "latest",
-    "react": "latest",
-    "react-dom": "latest",
-    "typescript": "latest",
-    "vite": "latest"
+    "preview": "vite preview",
+    "electron": "electron .",
+    "build:electron": "tsc -b && vite build --base=./",
+    "dist": "npm run build:electron && electron-builder --win nsis"
   },
   "devDependencies": {
     "@types/react": "latest",
-    "@types/react-dom": "latest"
+    "@types/react-dom": "latest",
+    "@vitejs/plugin-react": "^6.1.1",
+    "electron": "^39.1.2",
+    "electron-builder": "^26.0.12",
+    "lucide-react": "^1.43.0",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "typescript": "^7.0.2",
+    "vite": "^8.2.2"
+  },
+  "main": "electron/main.cjs",
+  "build": {
+    "appId": "com.nitishk.developerutility",
+    "productName": "Developer Utility",
+    "artifactName": "Developer-Utility-Setup.${ext}",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "dist/**/*",
+      "electron/**/*",
+      "package.json"
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "Developer Utility"
+    }
   }
 }

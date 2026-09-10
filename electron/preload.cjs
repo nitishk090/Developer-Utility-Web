@@ -1,0 +1,1 @@
+// Keep the preload isolated until the desktop app needs a defined IPC API.
