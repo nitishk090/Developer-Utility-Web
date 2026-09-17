@@ -1,6 +1,8 @@
 node_modules/
 dist/
 release/
+*.exe
+*.msi
 .env
 .env.*
 !.env.example

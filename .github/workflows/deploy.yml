@@ -35,6 +35,8 @@ jobs:
         run: npm ci
 
       - name: Build
+        env:
+          VITE_WINDOWS_DOWNLOAD_URL: https://drive.google.com/uc?export=download&id=18H3ZQCKszPx-kxrL7E4xdG9Tp79o-LXJ
         run: npm run build
 
       - name: Upload Pages artifact

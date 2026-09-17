@@ -78,7 +78,7 @@ export const faqs = [
   ],
   [
     "Is Developer Utility free?",
-    "Pricing and distribution details are not defined in the current project materials. Check the project releases for the latest availability.",
+    "Pricing and distribution details are not defined in the current project materials. Check the configured download link for the latest availability.",
   ],
   [
     "Which platforms are supported?",

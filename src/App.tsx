@@ -35,14 +35,20 @@ function DownloadButton({ platform }: { platform: "windows" | "mac" }) {
   const label =
     platform === "windows" ? "Download for Windows" : "Download for macOS";
   return url ? (
-    <a className="button button-primary" href={url} {...externalProps}>
+    <a
+      className="button button-primary"
+      href={url}
+      {...(platform === "windows" ? { download: true } : externalProps)}
+    >
       <Download size={16} />
       {label}
     </a>
   ) : (
     <span className="button button-disabled" aria-disabled="true">
       <Download size={16} />
-      {platform === "windows" ? "Windows download soon" : "macOS download soon"}
+      {platform === "windows"
+        ? "Windows download unavailable"
+        : "macOS download soon"}
     </span>
   );
 }
@@ -323,15 +329,8 @@ function App() {
             <div className="download-actions">
               <DownloadButton platform="windows" />
               <DownloadButton platform="mac" />
-              <a
-                className="button button-outline"
-                href={siteConfig.releasesUrl || siteConfig.repositoryUrl}
-                {...externalProps}
-              >
-                View releases <ArrowRight size={16} />
-              </a>
               <small>
-                Installers are distributed through configured release links.
+                Version {siteConfig.version} · Windows installer (.exe)
               </small>
             </div>
           </div>
